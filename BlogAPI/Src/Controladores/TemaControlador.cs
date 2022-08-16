@@ -32,7 +32,9 @@ namespace BlogAPI.Src.Controladores
         public async Task<ActionResult> PegarTodosTemasAsync()
         {
             var lista = await _repositorio.PegarTodosTemasAsync();
+
             if (lista.Count < 1) return NoContent();
+
             return Ok(lista);
         }
 
@@ -68,6 +70,20 @@ namespace BlogAPI.Src.Controladores
             catch (Exception ex)
             {
                 return BadRequest(new { Mensagem = ex.Message });
+            }
+        }
+
+        [HttpDelete("deletar/{idTema}")]
+        public async Task<ActionResult> DeletarTema([FromRoute] int idTema)
+        {
+            try
+            {
+                await _repositorio.DeletarTemaAsync(idTema);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { Mensagem = ex.Message });
             }
         }
 

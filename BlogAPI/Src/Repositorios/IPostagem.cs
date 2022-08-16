@@ -4,6 +4,14 @@ using System.Threading.Tasks;
 
 namespace BlogAPI.Src.Repositorios
 {
+
+    /// <summary>
+    /// <para>Resumo: Responsavel por representar ações de CRUD de postagem</para>
+    /// <para>Criado por: Henrique</para>
+    /// <para>Versão: 1.0</para>
+    /// <para>Data: 09/08/2022</para>
+    /// </summary>
+
     public interface IPostagem
     {
         Task<List<Postagem>> PegarTodasPostagensAsync();

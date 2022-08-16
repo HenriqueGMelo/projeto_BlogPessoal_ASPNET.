@@ -31,7 +31,9 @@ namespace BlogAPI.Src.Controladores
         public async Task<ActionResult> PegarTodasPostagensAsync()
         {
             var lista = await _repositorio.PegarTodasPostagensAsync();
+
             if (lista.Count < 1) return NoContent();
+
             return Ok(lista);
         }
 

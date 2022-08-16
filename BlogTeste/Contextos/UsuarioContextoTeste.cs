@@ -2,19 +2,15 @@
 using BlogAPI.Src.Modelos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlogTeste.Contextos
 {
     /// <summary>
     /// <para>Resumo: Classe para texte unitario de contexto de usuario</para>
-    /// <para>Criado por: </para>
+    /// <para>Criado por: Henrique </para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 03/08/2022</para>
+    /// <para>Data: 08/08/2022</para>
     /// </summary>
     [TestClass]
     public class UsuarioContextoTeste
@@ -52,7 +48,6 @@ namespace BlogTeste.Contextos
 
             // ENTÃO - Então deve retornar resultado nao nulo
             Assert.IsNotNull(resultado);
-            //Assert.AreEqual("Henrique Melo", resultado.Nome);
         }
 
         [TestMethod]
@@ -62,7 +57,9 @@ namespace BlogTeste.Contextos
             var opt = new DbContextOptionsBuilder<BlogPessoalContexto>()
             .UseInMemoryDatabase(databaseName: "IMD_blog_gen_UCT2")
             .Options;
+
             _contexto = new BlogPessoalContexto(opt);
+
             // DADO - Dado que adiciono 3 usuarios novos no sistema
             _contexto.Usuarios.Add(new Usuario
             {
@@ -101,9 +98,10 @@ namespace BlogTeste.Contextos
             var opt = new DbContextOptionsBuilder<BlogPessoalContexto>()
             .UseInMemoryDatabase(databaseName: "IMD_blog_gen_UCT3")
             .Options;
+
             _contexto = new BlogPessoalContexto(opt);
 
-            // DADO - Dado que adiciono um usuario no sistema
+            // DADO - Dado que adiciona um usuario no sistema
             _contexto.Usuarios.Add(new Usuario
             {
                 Nome = "Marcos Name",
@@ -121,7 +119,7 @@ namespace BlogTeste.Contextos
             _contexto.SaveChanges();
 
             // QUANDO - Quando pesquiso pelo nome Marcos Nome
-            var resultado = _contexto.Usuarios.FirstOrDefault(u => u.Nome == "Zenildo Rosa");
+            var resultado = _contexto.Usuarios.FirstOrDefault(u => u.Nome == "Marcos Nome");
 
             // ENTÃO - Então deve retornar resultado nao nulo
             Assert.IsNotNull(resultado);
@@ -134,6 +132,7 @@ namespace BlogTeste.Contextos
             var opt = new DbContextOptionsBuilder<BlogPessoalContexto>()
             .UseInMemoryDatabase(databaseName: "IMD_blog_gen_UCT4")
             .Options;
+
             _contexto = new BlogPessoalContexto(opt);
 
             // DADO - Dado que adiciono um usuario no sistema

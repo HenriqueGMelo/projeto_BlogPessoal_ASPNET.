@@ -51,11 +51,13 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         public async Task<Tema> PegarTemaPeloIdAsync(int id)
         {
             if (!ExisteId(id)) throw new Exception("Id do tema não encontrado");
+
             return await _contexto.Temas.FirstOrDefaultAsync(t => t.Id == id);
+
             // funções auxiliares
             bool ExisteId(int id)
             {
-                var auxiliar = _contexto.Temas.FirstOrDefault(u => u.Id == id);
+                var auxiliar = _contexto.Temas.FirstOrDefault(t => t.Id == id);
                 return auxiliar != null;
             }
         }
@@ -67,10 +69,10 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         public async Task NovoTemaAsync(Tema tema)
         {
             await _contexto.Temas.AddAsync(
-            new Tema
-            {
-                Descricao = tema.Descricao
-            });
+                new Tema
+                {
+                    Descricao = tema.Descricao
+                });
             await _contexto.SaveChangesAsync();
         }
 

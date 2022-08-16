@@ -12,7 +12,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
     /// <para>Resumo: Classe responsavel por implementar IPostagem</para>
     /// <para>Criado por: Henrique</para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 08/08/2022</para>
+    /// <para>Data: 09/08/2022</para>
     /// </summary>
     public class PostagemRepositorio : IPostagem
     {
@@ -38,9 +38,9 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         public async Task<List<Postagem>> PegarTodasPostagensAsync()
         {
             return await _contexto.Postagens
-            .Include(p => p.Criador)
-            .Include(p => p.Tema)
-            .ToListAsync();
+                .Include(p => p.Criador)
+                .Include(p => p.Tema)
+                .ToListAsync();
         }
 
         /// <summary>
@@ -52,13 +52,15 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         public async Task<Postagem> PegarPostagemPeloIdAsync(int id)
         {
             if (!ExisteId(id)) throw new Exception("Id da postagem não encontrado");
+
             return await _contexto.Postagens
-            .Include(p => p.Criador)
-            .Include(p => p.Tema)
-            .FirstOrDefaultAsync(p => p.Id == id);
+                .Include(p => p.Criador)
+                .Include(p => p.Tema)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
             bool ExisteId(int id)
             {
-                var auxiliar = _contexto.Postagens.FirstOrDefault(u => u.Id == id);
+                var auxiliar = _contexto.Postagens.FirstOrDefault(p => p.Id == id);
                 return auxiliar != null;
             }
         }
@@ -129,6 +131,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
                 return auxiliar != null;
             }
         }
+
         public async Task DeletarPostagemAsync(int id)
         {
             _contexto.Postagens.Remove(await PegarPostagemPeloIdAsync(id));

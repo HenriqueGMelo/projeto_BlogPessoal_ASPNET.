@@ -18,6 +18,5 @@ namespace BlogAPI.Src.Repositorios
         Task NovoTemaAsync(Tema tema);
         Task AtualizarTemaAsync(Tema tema);
         Task DeletarTemaAsync(int id);
-
     }
 }
