@@ -54,7 +54,7 @@ namespace BlogAPI.Src.Controladores
             return Ok(usuario);
         }
 
-        [HttpPost("cadastrar")]
+        [HttpPost("Cadastrar")]
         [AllowAnonymous]
         public async Task<ActionResult> NovoUsuarioAsync([FromBody] Usuario usuario)
         {
