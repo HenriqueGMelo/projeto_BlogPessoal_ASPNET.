@@ -29,15 +29,6 @@ namespace BlogAPI.Src.Controladores
 
         #endregion
 
-        #region Construtores
-        public UsuarioControlador(IUsuario repositorio)
-        {
-            _repositorio = repositorio;
-
-        }
-
-        #endregion
-
         #region Métodos
 
         [HttpGet("email/{emailUsuario}")]
@@ -54,7 +45,7 @@ namespace BlogAPI.Src.Controladores
             return Ok(usuario);
         }
 
-        [HttpPost("Cadastrar")]
+        [HttpPost("cadastrar")]
         [AllowAnonymous]
         public async Task<ActionResult> NovoUsuarioAsync([FromBody] Usuario usuario)
         {
