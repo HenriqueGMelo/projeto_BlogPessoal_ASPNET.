@@ -65,7 +65,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para salvar um novo tema</para>
         /// </summary>
-        /// <param name="tema">Construtor para cadastrar tema</param>
+        /// <param name="tema">cadastrar tema</param>
         public async Task NovoTemaAsync(Tema tema)
         {
             await _contexto.Temas.AddAsync(
@@ -79,7 +79,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para atualizar um tema</para>
         /// </summary>
-        /// <param name="tema">Construtor para atualizar tema</param>
+        /// <param name="tema">atualizar tema</param>
         public async Task AtualizarTemaAsync(Tema tema)
         {
             var temaExistente = await PegarTemaPeloIdAsync(tema.Id);

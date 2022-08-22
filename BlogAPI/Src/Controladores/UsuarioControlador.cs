@@ -31,7 +31,15 @@ namespace BlogAPI.Src.Controladores
 
         #region Métodos
 
+        /// <summary>
+        /// Pegar Usuario Pelo Email
+        /// </summary>
+        /// <param name="emailUsuario">E-mail do usuario</param>
+        /// <returns>ActionResult</returns>
+        /// <response code="200">Retorna o usuario</response>
+        /// <response code="404">Email não existente</response>
         [HttpGet("email/{emailUsuario}")]
+        [Authorize(Roles = "NORMAL,ADMINISTRADOR")]
         public async Task<ActionResult> PegarUsuarioPeloEmailAsync([FromRoute] string
         emailUsuario)
         {
@@ -45,6 +53,26 @@ namespace BlogAPI.Src.Controladores
             return Ok(usuario);
         }
 
+        /// <summary>
+        /// Criar Novo Usuario
+        /// </summary>
+        /// <param name="usuario">criar usuario</param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        /// POST /api/Usuarios/cadastrar
+        /// {
+        /// "nome": "Henrique Melo",
+        /// "email": "nome@email.com",
+        /// "senha": "12345",
+        /// "foto": "URLFOTO",
+        /// "tipo": "NORMAL OU ADMINISTRADOR"
+        /// }
+        ///
+        /// </remarks>
+        /// <response code="201">Retorna usuario criado</response>
+        /// <response code="401">E-mail ja cadastrado</response>
         [HttpPost("cadastrar")]
         [AllowAnonymous]
         public async Task<ActionResult> NovoUsuarioAsync([FromBody] Usuario usuario)
@@ -60,6 +88,23 @@ namespace BlogAPI.Src.Controladores
             }
         }
 
+        /// <summary>
+        /// Pegar Autorização
+        /// </summary>
+        /// <param name="usuario">logar usuario</param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        /// POST /api/Usuarios/logar
+        /// {
+        /// "email": "nome@email.com",
+        /// "senha": "12345"
+        /// }
+        ///
+        /// </remarks>
+        /// <response code="201">Retorna usuario criado</response>
+        /// <response code="401">E-mail ou senha invalido</response>
         [HttpPost("logar")]
         [AllowAnonymous]
         public async Task<ActionResult> LogarAsync([FromBody] Usuario usuario)

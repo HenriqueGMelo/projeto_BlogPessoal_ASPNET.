@@ -27,6 +27,13 @@ namespace BlogAPI.Src.Controladores
 
         #region Métodos
 
+        /// <summary>
+        /// Pegar Todas Postagens
+        /// </summary>
+        /// <param name="Todas Postagens">Pegar todas Postagens</param>
+        /// <returns>ActionResult</returns>
+        /// <response code="200">Retorna todas postagens</response>
+        /// <response code="404">Postagens não encontradas</response>
         [HttpGet]
         public async Task<ActionResult> PegarTodasPostagensAsync()
         {
@@ -37,6 +44,13 @@ namespace BlogAPI.Src.Controladores
             return Ok(lista);
         }
 
+        /// <summary>
+        /// Pegar Postagem Pelo Id
+        /// </summary>
+        /// <param name="idPostagem">Pegar Postagens pelo Id</param>
+        /// <returns>ActionResult</returns>
+        /// <response code="200">Retorna postagens pelo Id</response>
+        /// <response code="404">Id não existente</response>
         [HttpGet("id/{idPostagem}")]
         public async Task<ActionResult> PegarPostagemPeloIdAsync([FromRoute] int idPostagem)
         {
@@ -50,6 +64,29 @@ namespace BlogAPI.Src.Controladores
             }
         }
 
+        /// <summary>
+        /// Criar Postagem
+        /// </summary>
+        /// <param name="postagem">Nova Postagem</param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        /// POST /api/Postagens
+        /// {
+        /// "Titulo": "Documentação",
+        /// "Descrição": "Resultado de criação de novo tema",
+        /// "Foto": "URL_FOTO",
+        /// "Criador": {
+        ///     "Id": n°
+        /// },
+        /// "Tema": {
+        ///     "Id": n°
+        /// }
+        /// 
+        /// </remarks>
+        /// <response code="201">Retorna postagem criada</response>
+        /// <response code="401">Falha ao criar postagem</response>
         [HttpPost]
         public async Task<ActionResult> NovaPostagemAsync([FromBody] Postagem postagem)
         {
@@ -64,6 +101,23 @@ namespace BlogAPI.Src.Controladores
             }
         }
 
+        /// <summary>
+        /// Atualizar Postagem
+        /// </summary>
+        /// <param name="postagem">Atualizar Postagem </param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        /// POST /api/Postagens
+        /// {
+        /// "Id": "valor do Id",
+        /// "Descrição": "Resultado de criação de novo tema",
+        /// }
+        /// 
+        /// </remarks>
+        /// <response code="201">Retorna tema atualizado</response>
+        /// <response code="401">Id não encontrado</response>
         [HttpPut]
         public async Task<ActionResult> AtualizarPostagemAsync([FromBody] Postagem
         postagem)
@@ -80,6 +134,22 @@ namespace BlogAPI.Src.Controladores
             }
         }
 
+        /// <summary>
+        /// Deletar Postagem
+        /// </summary>
+        /// <param name="idPostagem">Deletar postagem pelo Id</param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        /// POST /api/Postagens/deletar/{idPostagem}
+        /// {
+        /// "Id": "valor do Id",
+        /// }
+        ///
+        /// </remarks>
+        /// <response code="201">Retorna confirmação de tema deletado</response>
+        /// <response code="401">Id não encontrado</response>
         [HttpDelete("deletar/{idPostagem}")]
         public async Task<ActionResult> DeletarPostagem([FromRoute] int idPostagem)
         {

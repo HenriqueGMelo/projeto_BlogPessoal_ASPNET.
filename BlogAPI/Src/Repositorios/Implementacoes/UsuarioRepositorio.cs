@@ -33,7 +33,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para pegar um usuario pelo email</para>
         /// </summary>
-        /// <param 'name="email">Email do usuario</param>
+        /// <param> 'name="email">Email do usuario</param>
         /// <return>UsuarioModelo</return>
         public async Task<Usuario> PegarUsuarioPeloEmailAsync(string email)
         {
@@ -43,7 +43,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para salvar um novo usuario</para>
         /// </summary>
-        /// <param 'name="usuario">Construtor para cadastrar usuario</param>
+        /// <param> 'name="usuario">Construtor para cadastrar usuario</param>
         public async Task NovoUsuarioAsync(Usuario usuario)
         {
             await _contexto.Usuarios.AddAsync(

@@ -68,7 +68,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para salvar uma nova postagem</para>
         /// </summary>
-        /// <param name="postagem">Construtor para cadastrar postagem</param>
+        /// <param name="postagem">cadastrar postagem</param>
         /// <exception cref="Exception">Id não pode ser nulo</exception>
         public async Task NovaPostagemAsync(Postagem postagem)
         {
@@ -107,7 +107,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para atualizar uma postagem</para>
         /// </summary>
-        /// <param name="postagem">Construtor para atualizar postagem</param>
+        /// <param name="postagem">atualizar postagem</param>
         /// <exception cref="Exception">Id não pode ser nulo</exception>
         public async Task AtualizarPostagemAsync(Postagem postagem)
         {
@@ -132,6 +132,11 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
             }
         }
 
+        /// <summary>
+        /// <para>Resumo: Método assíncrono para atualizar uma postagem</para>
+        /// </summary>
+        /// <param name="postagem">deletar postagem</param>
+        /// <exception cref="Exception">Id não pode ser nulo</exception>
         public async Task DeletarPostagemAsync(int id)
         {
             _contexto.Postagens.Remove(await PegarPostagemPeloIdAsync(id));
@@ -139,6 +144,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         }
 
         #endregion
+
     }
 }
 

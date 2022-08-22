@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogAPI.Src.Modelos
 {
-// <summary>
+/// <summary>
 /// <para>Resumo: Classe responsavel por representar tb_postagens no banco.</para>
 /// <para>Criado por: Henrique</para>
 /// <para>Versão: 1.0</para>
