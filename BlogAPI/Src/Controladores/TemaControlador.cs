@@ -96,7 +96,7 @@ namespace BlogAPI.Src.Controladores
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        /// POST /api/Temas
+        /// PUT /api/Temas
         /// {
         /// "Id": "valor do Id",
         /// "Descrição": "Resultado de criação de novo tema",
@@ -127,7 +127,7 @@ namespace BlogAPI.Src.Controladores
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        /// POST /api/Usuarios
+        /// DELETE /api/Usuarios
         /// {
         /// "Id": "valor do Id",
         /// }
