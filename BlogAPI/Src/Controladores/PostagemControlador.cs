@@ -109,7 +109,7 @@ namespace BlogAPI.Src.Controladores
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        /// POST /api/Postagens
+        /// PUT /api/Postagens
         /// {
         /// "Id": "valor do Id",
         /// "Descrição": "Resultado de criação de novo tema",
@@ -142,7 +142,7 @@ namespace BlogAPI.Src.Controladores
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        /// POST /api/Postagens
+        /// DELETE /api/Postagens
         /// {
         /// "Id": "valor do Id",
         /// }
@@ -164,6 +164,7 @@ namespace BlogAPI.Src.Controladores
             }
 
             #endregion
+
         }
     }
 }
