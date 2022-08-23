@@ -135,7 +135,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <summary>
         /// <para>Resumo: Método assíncrono para atualizar uma postagem</para>
         /// </summary>
-        /// <param name="postagem">deletar postagem</param>
+        /// <param name="id">deletar postagem</param>
         /// <exception cref="Exception">Id não pode ser nulo</exception>
         public async Task DeletarPostagemAsync(int id)
         {

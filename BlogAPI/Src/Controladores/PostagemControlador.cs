@@ -142,7 +142,7 @@ namespace BlogAPI.Src.Controladores
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        /// POST /api/Postagens/deletar/{idPostagem}
+        /// POST /api/Postagens
         /// {
         /// "Id": "valor do Id",
         /// }

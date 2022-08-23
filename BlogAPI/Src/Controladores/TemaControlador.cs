@@ -127,7 +127,7 @@ namespace BlogAPI.Src.Controladores
         /// <remarks>
         /// Exemplo de requisição:
         ///
-        /// POST /api/Usuarios/logar
+        /// POST /api/Usuarios
         /// {
         /// "Id": "valor do Id",
         /// }
